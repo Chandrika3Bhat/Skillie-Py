@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> 
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h2>Welcome to the Dashboard, {{ user }}</h2>
+        </header>
+
+        <div class="dashboard-content">
+            <!-- Sidebar with navigation options -->
+            <aside class="sidebar">
+                <h3>Options</h3>
+                <ul>
+                    <li><a href="{{ url_for('match') }}">Match Me</a></li>
+                    <!-- Book a Session link -->
+                    <li><a href="{{ url_for('book_session', teacher='teacher_placeholder', user=user) }}">Book a Session</a></li>
+                </ul>
+            </aside>
+
+            <!-- Main content for matches -->
+            <main class="matches-section">
+                <h3>Your Matches</h3>
+                <div id="match-list">
+                    {% if matches %}
+                        <ul>
+                            {% for match in matches %}
+                                <li>
+                                    <strong>{{ match.username }}</strong> offers <strong>{{ match.skill_offered }}</strong> 
+                                    and wants to learn <strong>{{ match.skill_needed }}</strong>.
+                                    
+                                    <!-- Book Session button -->
+                                    <a href="{{ url_for('book_session', teacher=match.username, user=user) }}" class="book-session-button">Book a Session</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>IF No matches found, Try updating your skills or preferences.</p>
+                    {% endif %}
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .dashboard-container {
+            width: 90%;
+            max-width: 1200px;
+            background: #ffffff;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .dashboard-header {
+            background: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .dashboard-content {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 25%;
+            background: #f9f9f9;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+        }
+
+        .sidebar h3 {
+            margin-bottom: 15px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        .matches-section {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .matches-section h3 {
+            margin-bottom: 20px;
+        }
+
+        #match-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #match-list li {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: #f9f9f9;
+        }
+
+        .book-session-button {
+            background: #007bff;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .book-session-button:hover {
+            background: #0056b3;
+        }
+    </style>
+</body>
+</html>

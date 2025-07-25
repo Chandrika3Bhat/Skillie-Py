@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Match</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="match-container">
+        <h2>Find a Match</h2>
+        <form method="POST">
+            <label for="offered_skills">Skills You Offer:</label>
+            <input type="text" id="offered_skills" name="offered_skills" placeholder="e.g., Python, Java" required>
+            
+            <label for="needed_skills">Skills You Want to Learn:</label>
+            <input type="text" id="needed_skills" name="needed_skills" placeholder="e.g., HTML, SQL" required>
+            
+            <button type="submit">Find a Match</button>
+        </form>
+
+        <div id="match-results">
+            {% if message %}
+                <p>{{ message }}</p>
+            {% endif %}
+
+            {% if matches %}
+                <ul>
+                    {% for match in matches %}
+                        <li>
+                            <strong>{{ match.username }}</strong> offers 
+                            <strong>{{ match.skill_offered }}</strong> 
+                            and wants to learn 
+                            <strong>{{ match.skill_needed }}</strong>.
+                            
+                            <!-- Book Session Button -->
+                            <form action="{{ url_for('book_session', teacher=match.username, user=user) }}" method="GET">
+                                <button type="submit">Book Session</button>
+                            </form>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No matches found. Try updating your skills or preferences.</p>
+            {% endif %}
+        </div>
+
+        <!-- Back to Dashboard Button -->
+        <a href="/" class="btn">Back to Home</a>
+    </div>
+</body>
+</html>

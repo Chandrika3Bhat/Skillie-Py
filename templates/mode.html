@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Mode of Class</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="mode-selection-container">
+        <h2>Select Mode of Class</h2>
+        <p>Booking with: <strong>{{ teacher }}</strong></p>
+
+        <form action="/mode/{{ user }}/{{ teacher }}" method="POST">
+            <div class="form-group">
+                <label for="mode">Choose Mode:</label>
+                <div>
+                    <input type="radio" id="zoom_call" name="mode" value="Zoom Call" required>
+                    <label for="zoom_call">Zoom Call</label>
+                </div>
+                <div>
+                    <input type="radio" id="recorded_class" name="mode" value="Recorded Class" required>
+                    <label for="recorded_class">Recorded Class</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn">Confirm</button>
+        </form>
+
+        <a href="{{ url_for('dashboard', user=user) }}">Back to Dashboard</a>
+    </div>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .mode-selection-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            margin-left: 10px;
+            font-weight: bold;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            display: block;
+            margin-top: 15px;
+            text-align: center;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</body>
+</html>

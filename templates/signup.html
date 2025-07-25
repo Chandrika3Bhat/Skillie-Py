@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <form action="/signup" method="POST">
+        <h2>Signup</h2>
+        
+        <!-- Display error message if the username already exists -->
+        {% if error %}
+            <p style="color: red; font-weight: bold;">{{ error }}</p>
+        {% endif %}
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="Enter 10-digit phone number" required>
+
+        <label for="skill_offered">Skill Offered:</label>
+        <input type="text" id="skill_offered" name="skill_offered" required>
+
+        <label for="skill_needed">Skill Needed:</label>
+        <input type="text" id="skill_needed" name="skill_needed" required>
+
+        <button type="submit">Signup</button>
+    </form>
+</body>
+</html>

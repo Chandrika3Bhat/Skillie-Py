@@ -1,0 +1,239 @@
+/* General Styles */
+body {
+    background: url('https://cdn.vectorstock.com/i/500p/32/23/machinelearning2-vector-31253223.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff; /* Light text color */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Align content vertically */
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Header and Footer */
+header, footer {
+    background-color: rgba(20, 20, 30, 0.9); /* Semi-transparent header and footer */
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    font-size: 14px;
+    border-top: 1px solid #444455;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+/* Heading Styles */
+h1.main-heading {
+    font-size: 36px; /* Adjust font size */
+    font-weight: bold; /* Make it bold */
+    color: #f8f5f7; /* Set to black */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form Styles */
+form {
+    background-color: rgba(30, 30, 45, 0.9); /* Semi-transparent dark form background */
+    padding: 30px 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch; /* Ensures inputs and buttons stretch to form width */
+}
+
+form h2 {
+    color: #00bcd4;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+label {
+    text-align: left;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+input, textarea, select {
+    background-color: #2a2a3d;
+    color: #ffffff;
+    border: 1px solid #555566;
+    padding: 10px;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 14px;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #888888;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #00bcd4;
+    box-shadow: 0px 0px 8px #00bcd4;
+}
+
+/* Buttons */
+button {
+    background-color: #00bcd4;
+    color: #ffffff;
+    border: none;
+    padding: 12px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+}
+
+button:hover {
+    background-color: #1de9b6;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+/* Large Buttons for Login and Sign Up */
+button.large-btn {
+    padding: 20px 30px; /* Increase padding for bigger size */
+    font-size: 20px; /* Larger font size */
+    font-weight: bold;
+    border-radius: 8px;
+    margin: 10px auto;
+    display: block;
+    width: 100%;
+    max-width: 300px; /* Optional: Limit maximum width */
+    text-align: center;
+}
+
+button.large-btn:hover {
+    background-color: #1de9b6;
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1); /* Slightly increase size on hover */
+}
+
+/* Adjust container for login and sign-up buttons */
+.auth-buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(20, 20, 30, 0.8); /* Semi-transparent container */
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+/* Links */
+a {
+    color: #1de9b6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #00bcd4;
+    text-decoration: underline;
+}
+
+/* Matches Section */
+.match-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.match-list li {
+    background-color: rgba(50, 50, 70, 0.8);
+    color: #ffffff;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    list-style: none;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.match-list li:hover {
+    background-color: rgba(60, 60, 80, 0.9);
+    transform: scale(1.02);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: rgba(20, 20, 30, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    text-align: left;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto;
+}
+
+.sidebar h3 {
+    color: #1de9b6;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.sidebar a {
+    color: #00bcd4;
+}
+
+.sidebar a:hover {
+    color: #1de9b6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container, form, .sidebar {
+        padding: 10px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    form h2 {
+        font-size: 18px;
+    }
+}
